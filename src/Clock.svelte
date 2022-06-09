@@ -8,8 +8,8 @@
 		["Ciudad de México", "America/Mexico_City"],
 		["Santiago de Chile", "America/Santiago"],
 		["La Paz", "America/La_Paz"],
+		["Santo Domingo", "America/Santo_Domingo"],
 		["Buenos Aires", "America/Buenos_Aires"],
-		["Pyongyang", "Asia/Pyongyang"],
 	]
 
 	let current = 0;
