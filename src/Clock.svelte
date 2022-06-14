@@ -1,44 +1,63 @@
 <script>
-	import TimeZone from './TimeZone.svelte';
-	
-	const UBICACIONES = [
-		["Madrid", "Europe/Madrid"],
-		["Canarias", "Atlantic/Canary"],
-		["UTC", "Etc/UTC"],
-		["Ciudad de México", "America/Mexico_City"],
-		["Santiago de Chile", "America/Santiago"],
-		["La Paz", "America/La_Paz"],
-		["Santo Domingo", "America/Santo_Domingo"],
-		["Buenos Aires", "America/Buenos_Aires"],
-	]
+  import TimeZone from "./TimeZone.svelte";
 
-	let current = 0;
+  const UBICACIONES = [
+    ["Madrid", "Europe/Madrid"],
+    ["Canarias", "Atlantic/Canary"],
+    ["UTC", "Etc/UTC"],
+    ["Ciudad de México", "America/Mexico_City"],
+    ["Bogotá", "America/Bogota"],
+    ["Quito / Guayaquil", "America/Guayaquil"],
+    ["Santiago de Chile", "America/Santiago"],
+    ["La Paz", "America/La_Paz"],
+    ["Santo Domingo", "America/Santo_Domingo"],
+    ["Buenos Aires", "America/Buenos_Aires"],
+  ];
 
-	const jump = () => {
-		if (++current == UBICACIONES.length)
-			current = 0;
-	}
+  let current = 0;
 
-	let interval;
-	
-	$: {
-		if (interval)
-			clearInterval(interval);
-		interval = setInterval(() => {
-			jump();
-		}, 15000);
-	}
+  const jump = () => {
+    if (++current == UBICACIONES.length / 2) current = 0;
+  };
+
+  let interval;
+
+  $: {
+    if (interval) clearInterval(interval);
+    interval = setInterval(() => {
+      jump();
+    }, 15000);
+  }
 </script>
 
-<svg id="clock" viewBox="0 0 240 80">
-	<TimeZone label={UBICACIONES[current][0]} zone={UBICACIONES[current][1]} />
+<svg class="clock" viewBox="0 0 240 80">
+  <TimeZone
+    label={UBICACIONES[2 * current][0]}
+    zone={UBICACIONES[2 * current][1]}
+  />
+</svg>
+
+<svg class="clock" viewBox="0 0 240 80">
+  <TimeZone
+    label={UBICACIONES[2 * current + 1][0]}
+    zone={UBICACIONES[2 * current + 1][1]}
+  />
 </svg>
 
 <style>
-	#clock {
-		position: absolute;
-		width: 100vw;
-		height: 100vh;
-	}
+  body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .clock {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10vh;
+    width: 100vw;
+    flex: 1;
+  }
 </style>
-
