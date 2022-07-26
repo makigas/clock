@@ -9,7 +9,7 @@
     ["Bogotá", "America/Bogota"],
     ["Quito / Guayaquil", "America/Guayaquil"],
     ["Santiago de Chile", "America/Santiago"],
-    ["La Paz", "America/La_Paz"],
+    ["Sucre / La Paz", "America/La_Paz"],
     ["Santo Domingo", "America/Santo_Domingo"],
     ["Buenos Aires", "America/Buenos_Aires"],
   ];
