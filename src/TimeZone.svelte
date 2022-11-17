@@ -8,7 +8,11 @@
 
 	const getTime = () => {
 		let date = new Date();
-		return date.toLocaleTimeString("es-ES", { timeZone: zone });
+		const time = date.toLocaleTimeString("es-ES", { timeZone: zone });
+		if (time.length === 7) {
+			return `0${time}`;
+		}
+		return time;
 	}
 
 	const updateTime = () => {
